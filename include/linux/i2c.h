@@ -416,6 +416,7 @@ struct i2c_board_info {
 	struct device_node *of_node;
 	struct fwnode_handle *fwnode;
 	const struct property_entry *properties;
+	const struct software_node *swnode;
 	const struct resource *resources;
 	unsigned int	num_resources;
 	int		irq;
