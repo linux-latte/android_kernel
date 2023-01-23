@@ -207,6 +207,19 @@ config LEDS_LM3532
 	  controlled manually or using PWM input or using ambient
 	  light automatically.
 
+config LEDS_KTD2026
+	tristate "LED support for KTD2026 Chip"
+	depends on LEDS_CLASS && I2C
+	help
+	  This option enables support for LEDS connected to KTD2026
+
+config LEDS_TPS61158
+	tristate "LED Support for TPS61158 keypad light"
+	depends on LEDS_CLASS
+	help
+	  This option enables support for keypad light connected to TPS61158,
+	  which is controlled by PWM output.
+
 config LEDS_LM3533
 	tristate "LED support for LM3533"
 	depends on LEDS_CLASS
