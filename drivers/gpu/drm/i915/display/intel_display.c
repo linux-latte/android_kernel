@@ -17889,6 +17889,8 @@ int intel_modeset_init_noirq(struct drm_i915_private *i915)
 	ret = intel_vga_register(i915);
 	if (ret)
 		goto cleanup_bios;
+		
+	intel_init_quirks(i915);	
 
 	/* FIXME: completely on the wrong abstraction layer */
 	intel_power_domains_init_hw(i915, false);
@@ -17918,8 +17920,6 @@ int intel_modeset_init_noirq(struct drm_i915_private *i915)
 		  intel_atomic_helper_free_state_worker);
 
 	intel_init_quirks(i915);
-
-	intel_fbc_init(i915);
 
 	return 0;
 

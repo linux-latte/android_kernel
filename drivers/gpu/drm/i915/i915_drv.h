@@ -518,6 +518,7 @@ struct i915_psr {
 #define QUIRK_PIN_SWIZZLED_PAGES (1<<5)
 #define QUIRK_INCREASE_T12_DELAY (1<<6)
 #define QUIRK_INCREASE_DDI_DISABLED_TIME (1<<7)
+#define QUIRK_NO_VLV_DISP_PW_DPIO_CMN_BC_INIT (1<<9)
 
 struct intel_fbdev;
 struct intel_fbc_work;

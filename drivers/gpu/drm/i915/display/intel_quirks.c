@@ -43,6 +43,13 @@ static void quirk_increase_t12_delay(struct drm_i915_private *i915)
 	drm_info(&i915->drm, "Applying T12 delay quirk\n");
 }
 
+/* The Xiaomi Mi Pad 2 CHT tablet hangs on enabling the dpio-common-bc well */
+static void quirk_no_vlv_disp_pw_dpio_cmn_bc_init(struct drm_i915_private *i915)
+{
+	i915->quirks |= QUIRK_NO_VLV_DISP_PW_DPIO_CMN_BC_INIT;
+	drm_info(&i915->drm, "Applying no dpio-common-bc powerwell init quirk\n");
+}
+
 /*
  * GeminiLake NUC HDMI outputs require additional off time
  * this allows the onboard retimer to correctly sync to signal
@@ -156,6 +163,8 @@ static struct intel_quirk intel_quirks[] = {
 	/* ASRock ITX*/
 	{ 0x3185, 0x1849, 0x2212, quirk_increase_ddi_disabled_time },
 	{ 0x3184, 0x1849, 0x2212, quirk_increase_ddi_disabled_time },
+	/* Xiaomi Mi Pad 2 */
+	{ 0x22b0, 0x1d72, 0x1502, quirk_no_vlv_disp_pw_dpio_cmn_bc_init },
 };
 
 void intel_init_quirks(struct drm_i915_private *i915)
